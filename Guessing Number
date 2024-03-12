@@ -1,0 +1,36 @@
+#PROJECT 1
+#Guessing the number
+
+import math
+import random
+print("Enter lower bound: ",end="")
+lower=int(input())
+print("Enter upper bound: ",end="")
+upper=int(input())
+
+ran=random.randint(lower,upper)
+
+chances=round(math.log(upper-lower+1,2))
+print(f"\n\tYou have {chances} chances to guess the Number!\n")
+flag=1
+while chances:
+    print("Guess a Number: ",end="")
+    usernum=int(input())
+    if usernum==ran:
+        print("\tCongrats!You Won!")
+        flag=0
+        break
+    elif usernum>ran:
+        print("\tYou are too high!")
+        print("\t Need a clue?[Y/N]: ",end="")
+        clue=input()
+    else:
+        print("\tYou are too low!")
+        print("\t Need a clue?: ",end="")
+        clue=input()
+    if clue=='Y':
+        print("Try Using Binary Search!!")
+    chances-=1
+if flag==1:
+    print(f"\tThe Number is {ran}\n Better luck next time!")
+    
