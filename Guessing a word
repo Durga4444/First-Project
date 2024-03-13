@@ -1,0 +1,43 @@
+#second project 
+#guessing a word 
+import random
+
+#words=["hello","Aadhi","is","my","second","project","by","Durga"]
+words=["hello","helll","heeel"]
+print("Enter your Name: ",end="")
+name=input()
+print(f"Hello {name}!")
+guesses=''
+compguess=random.choice(words)
+lencomp=len(compguess)
+turns=0
+for i in words:
+    if len(i)==lencomp:
+        turns+=1
+print("The word contains these many characters")
+while turns>0:
+    finish=0
+    for char in compguess:
+        if char in guesses:
+            print(char,end=" ")
+        else:
+            print('_')
+            finish+=1
+    if finish==0:
+        print(f"The word is {compguess} Super{name}!You Won!")
+        break 
+    print()
+    print("Guess a character: ",end="")
+    userguess=input()
+    guesses+=userguess
+    if guesses.count(userguess)>compguess.count(userguess):
+        print("you lose")
+        break
+    if userguess not in compguess:
+        turns-=1 
+        print("Wrong")
+        print(f"You have \"{turns}\" more chances!All the Best!")
+if turns==0:
+    print("The word is \"{compguess}\" .You lose!")
+    
+            
