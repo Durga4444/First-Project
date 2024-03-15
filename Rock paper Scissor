@@ -1,0 +1,45 @@
+import random
+choice=["Rock","Paper","Scissor"]
+print("Welcome to Rock Paper Scissor!")
+print("Enter your name: ",end="")
+name=input()
+
+print("Enter No.of.Times: ",end="")
+s=int(input())
+usersc,compsc=0,0
+while s:
+    comp=random.choice(choice)
+    print("Give your sign[Rock,Paper,Scissor]: ",end="")
+    user=input()
+    if  user==comp:
+        print(f"Comp play is {comp}.So Tie")
+    elif comp=="Rock":
+        if user=="Scissor":
+            print(f"Comp move is {comp}.You lose")
+            compsc+=1
+        elif user=="Paper":
+            print(f"Comp play is {comp}.Congratulations!You Won!")
+            usersc+=1
+    elif comp=="Scissor":
+        if user=="Paper":
+            print(f"Comp move is {comp}.You lose")
+            compsc+=1
+        elif user=="Rock":
+            print(f"Comp play is {comp}.Congratulations!You Won!")
+            usersc+=1
+    elif comp=="Paper":
+        if user=="Rock":
+            print(f"Comp move is {comp}.You lose")
+            compsc+=1
+        elif user=="Scissor":
+            print(f"Comp play is {comp}.Congratulations!You Won!")
+            usersc+=1
+    else:
+        print("Invalid String")
+    s-=1
+if usersc>compsc:
+    print(f"Your score is {usersc} and Comp Score is {compsc}.You are overall Winner!")
+elif usersc<compsc:
+    print(f"Your score is {usersc} and Comp Score is {compsc}Computer is overall Winner!")
+else:
+    print(f"Your score is {usersc} and Comp Score is {compsc}The Game end in Tie!")
